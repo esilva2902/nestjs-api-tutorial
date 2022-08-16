@@ -9,9 +9,9 @@ export class AuthController {
   constructor(private auth: AuthService) {}
 
   @Get('signup')
-  signup(@Body() dto: AuthDto): any {
+  async signup(@Body() dto: AuthDto): Promise<string> {
     console.log('AuthDto => ', dto);
-    return this.auth.signup();
+    return this.auth.signup(dto);
   }
 
   @Post('signin')
